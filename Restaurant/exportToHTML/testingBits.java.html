@@ -5,9 +5,9 @@
 <style type="text/css">
 .s0 { color: #cc7832;}
 .s1 { color: #a9b7c6;}
-.s2 { color: #6897bb;}
-.s3 { color: #6a8759;}
-.s4 { color: #808080;}
+.s2 { color: #808080;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
 </style>
 </head>
 <body bgcolor="#2b2b2b">
@@ -19,27 +19,31 @@ testingBits.java</font>
 <pre><span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
 
 <span class="s0">public class </span><span class="s1">testingBits {</span>
+    <span class="s2">// Initializing available that represents available buttons of the joystick</span>
     <span class="s0">int </span><span class="s1">available</span><span class="s0">;</span>
 
+    <span class="s2">// Given input button, set a button to available</span>
     <span class="s0">public void </span><span class="s1">setAvailable(</span><span class="s0">int </span><span class="s1">button</span><span class="s0">, boolean </span><span class="s1">a) {</span>
-        <span class="s0">if </span><span class="s1">(a &amp;&amp; ((available) &amp; (</span><span class="s2">1 </span><span class="s1">&lt;&lt; button)) == </span><span class="s2">0</span><span class="s1">) {</span>
-            <span class="s1">available |= (</span><span class="s2">1 </span><span class="s1">&lt;&lt; button)</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(a &amp;&amp; ((available) &amp; (</span><span class="s3">1 </span><span class="s1">&lt;&lt; button)) == </span><span class="s3">0</span><span class="s1">) {</span>
+            <span class="s1">available |= (</span><span class="s3">1 </span><span class="s1">&lt;&lt; button)</span><span class="s0">;</span>
         <span class="s1">}</span>
     <span class="s1">}</span>
-
+    <span class="s2">// Get current available buttons of joystick</span>
     <span class="s0">public void </span><span class="s1">getAvailable(){</span>
-        <span class="s1">System.out.println(</span><span class="s3">&quot;getAvailable:</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;getAvailable:</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s1">)</span><span class="s0">;</span>
         <span class="s1">ArrayList&lt;Integer&gt; avail_btns = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
 
-        <span class="s0">int </span><span class="s1">i = </span><span class="s2">1</span><span class="s0">;</span>
-        <span class="s0">while </span><span class="s1">(available &gt; (</span><span class="s2">1</span><span class="s1">&lt;&lt;i)){</span>
-            <span class="s0">if </span><span class="s1">((available | (</span><span class="s2">1</span><span class="s1">&lt;&lt;(i))) == available){</span>
-                <span class="s1">System.out.println(</span><span class="s3">&quot;Button &quot; </span><span class="s1">+ i + </span><span class="s3">&quot; is available!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s2">// Solve with while loop</span>
+        <span class="s0">int </span><span class="s1">i = </span><span class="s3">1</span><span class="s0">;</span>
+        <span class="s0">while </span><span class="s1">(available &gt; (</span><span class="s3">1</span><span class="s1">&lt;&lt;i)){</span>
+            <span class="s0">if </span><span class="s1">((available | (</span><span class="s3">1</span><span class="s1">&lt;&lt;(i))) == available){</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;Button &quot; </span><span class="s1">+ i + </span><span class="s4">&quot; is available!&quot;</span><span class="s1">)</span><span class="s0">;</span>
                 <span class="s1">avail_btns.add(i)</span><span class="s0">;</span>
             <span class="s1">}</span>
             <span class="s1">i++</span><span class="s0">;</span>
         <span class="s1">}</span>
-        <span class="s4">/* 
+        <span class="s2">/* 
+        // Solve with for loop 
         int highestButton = Integer.toBinaryString(available).length()-1; 
         for (int i=1;i &lt; highestButton+1;i++){ 
             if ((available | (1&lt;&lt;(i))) == available){ 
@@ -48,7 +52,7 @@ testingBits.java</font>
             } 
         } 
          */</span>
-        <span class="s1">System.out.println(</span><span class="s3">&quot;List of available buttons: &quot; </span><span class="s1">+ avail_btns)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;List of available buttons: &quot; </span><span class="s1">+ avail_btns)</span><span class="s0">;</span>
     <span class="s1">}</span>
 <span class="s1">}</span>
 </pre>
